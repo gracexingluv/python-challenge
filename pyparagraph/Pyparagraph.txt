@@ -1,0 +1,19 @@
+import re
+import os
+import string
+
+def para_read(para):
+    sentences = re.split("(?<=[.!?]) +", para)
+    words = re.split(" ", para)
+    letter = re.split("", para)
+    letter = [l for l in letter if l in string.ascii_letters]
+    print("Paragragh Analysis\n----------------------")
+    print(f'\nApproximate Word Count: {len(words)}')
+    print(f'\nApproximate Sentence Count: {len(sentences)}')
+    print(f'\nAverage Letter Count: {round(len(letter)/len(words),2)}')
+    print(f'\nAverage Sentence Length: {round(len(words)/len(sentences),2)}')
+
+
+with open("paragraph_1.txt", "r") as file:
+    paragraph_1 = file.read()
+    para_read(paragraph_1)
